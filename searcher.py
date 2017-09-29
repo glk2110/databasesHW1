@@ -37,7 +37,7 @@ def main():
       q='lectures',
       cx='001595247901778627873:pkxqapndan4',
     ).execute()
-  pprint.pprint(res[u'url'][u'template'])
+  pprint.pprint(res)
 
 if __name__ == '__main__':
   main()
