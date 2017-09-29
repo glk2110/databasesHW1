@@ -34,7 +34,7 @@ def main():
             developerKey="AIzaSyDlZ_2pBGPzkEekVenizjWW5j8Zt8akWsQ")
 
   res = service.cse().list(
-      q='lectures',
+      q='Gabe',
       cx='001595247901778627873:pkxqapndan4',
     ).execute()
   pprint.pprint(res[u'url'][u'template'])
