@@ -31,13 +31,16 @@ def main():
   # Build a service object for interacting with the API. Visit
   # the Google APIs Console <http://code.google.com/apis/console>
   # to get an API key for your own application.
-  search = sys.argv[1]
+  apiKey = sys.argv[1]
+  engineID = sys.argv[2]
+  precision = sys.argv[3]
+  search = sys.argv[4]
   service = build("customsearch", "v1",
-            developerKey="AIzaSyDlZ_2pBGPzkEekVenizjWW5j8Zt8akWsQ")
+            developerKey=apiKey)
 
   res = service.cse().list(
       q=search,
-      cx='001595247901778627873:pkxqapndan4',
+      cx=engineID,
     ).execute()
   pprint.pprint(res[u'url'][u'template'])
 
