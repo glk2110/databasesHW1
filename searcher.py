@@ -22,6 +22,7 @@ Command-line application that does a search.
 __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 
 import pprint
+import sys
 
 from googleapiclient.discovery import build
 
@@ -30,14 +31,24 @@ def main():
   # Build a service object for interacting with the API. Visit
   # the Google APIs Console <http://code.google.com/apis/console>
   # to get an API key for your own application.
+  apiKey = sys.argv[1]
+  engineID = sys.argv[2]
+  precision = sys.argv[3]
+  search = sys.argv[4]
   service = build("customsearch", "v1",
-            developerKey="AIzaSyDlZ_2pBGPzkEekVenizjWW5j8Zt8akWsQ")
+            developerKey=apiKey)
 
   res = service.cse().list(
-      q='lectures',
-      cx='001595247901778627873:pkxqapndan4',
+      q=search,
+      cx=engineID,
     ).execute()
-  pprint.pprint(res)
+
+  url = str(res[u'items'][0][u'link'])
+  title =  str(res[u'items'][0][u'title'])
+  summary = str(res[u'items'][0][u'snippet'])
+  pprint.pprint(url)
+  pprint.pprint(title)
+  pprint.pprint(summary)
 
 if __name__ == '__main__':
   main()
