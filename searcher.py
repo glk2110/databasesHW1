@@ -76,8 +76,8 @@ def main():
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
 		relevants.append(raw_input())
-	if printFeedback(search, precision, relevants) == False:
-		print("Still below the desired precision of " + str(precision))
+	if printFeedback(search, float(precision), relevants) == False:
+		print("Still below the desired precision of " + str(float(precision)))
 		expandQuery()
 	else:
 		print("Desired precision reached, done")
