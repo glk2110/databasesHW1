@@ -51,14 +51,14 @@ def main():
 	print("======================")
 	relevants = []
 	for i in range(10):
-		pprint.pprint("Result " + str(i) + "\n")
+		print("Result " + str(i) + "\n")
 		solution = str(res[u'items'][i][u'link'])
 		title =  str(res[u'items'][i][u'title'])
-		pprint.pprint("URL: " +solution)
-		pprint.pprint("Title: "+ title)
+		print("URL: " +solution)
+		print("Title: "+ title)
 		summary = res[u'items'][i][u'snippet']
-		pprint.pprint("Summary: " + summary)
-		pprint.pprint("\nIs this Relevant (Y/N)?")
+		print("Summary: " + summary)
+		print("\nIs this Relevant (Y/N)?")
 
 if __name__ == '__main__':
 	main()
