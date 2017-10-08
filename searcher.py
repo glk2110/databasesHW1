@@ -47,7 +47,7 @@ def main():
 	pprint.pprint("URL: " +solution)
 	pprint.pprint("Title: "+ title)
 	summary = res[u'items'][0][u'snippet']
-	pprint.pprint("Sumary: " + summary)
+	pprint.pprint("Summary: " + summary)
 
 if __name__ == '__main__':
 	main()
