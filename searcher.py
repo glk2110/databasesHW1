@@ -42,13 +42,13 @@ def main():
 		cx=engineID,
 	).execute()
 
-	solution = str(res[u'items'][0][u'link'])
-	title =  str(res[u'items'][0][u'title'])
-	pprint.pprint("URL: " +solution)
-	pprint.pprint("Title: "+ title)
-	summary = res[u'items'][0][u'snippet']
-	pprint.pprint("Summary: " + summary)
-	pprint.pprint(res[u'items'][1])
+	for i in range(10):
+		solution = str(res[u'items'][0][u'link'])
+		title =  str(res[u'items'][0][u'title'])
+		pprint.pprint("URL: " +solution)
+		pprint.pprint("Title: "+ title)
+		summary = res[u'items'][0][u'snippet']
+		pprint.pprint("Summary: " + summary)
 
 if __name__ == '__main__':
 	main()
