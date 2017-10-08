@@ -34,7 +34,7 @@ def printFeedback(query, precision, relevants):
 	print("======================")
 	print("FEEDBACK SUMMARY")
 	print("Query: ")
-	print("Precision: " + realPrecision)
+	print("Precision: " + str(realPrecision))
 	if precision > realPrecision:
 		return False
 	return True
