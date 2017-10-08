@@ -48,7 +48,7 @@ def main():
 	pprint.pprint("Title: "+ title)
 	summary = res[u'items'][0][u'snippet']
 	pprint.pprint("Summary: " + summary)
-	pprint.pprint(res)
+	pprint.pprint(res[u'items'][0])
 
 if __name__ == '__main__':
 	main()
