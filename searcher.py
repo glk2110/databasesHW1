@@ -42,13 +42,23 @@ def main():
 		cx=engineID,
 	).execute()
 
+	pprint.pprint("Parameters:")
+	pprint.pprint("Client Key	=" + apiKey)
+	pprint.pprint("Engine Key 	=" + engineID)
+	pprint.pprint("Query		=" + search)
+	pprint.pprint("Precision 	=" + precision)
+	pprint.pprint("Google Search Results:")
+	pprint.pprint("======================")
+	relevants = []
 	for i in range(10):
+		pprint.pprint("Result " + i + "\n")
 		solution = str(res[u'items'][i][u'link'])
 		title =  str(res[u'items'][i][u'title'])
 		pprint.pprint("URL: " +solution)
 		pprint.pprint("Title: "+ title)
 		summary = res[u'items'][i][u'snippet']
 		pprint.pprint("Summary: " + summary)
+		pprint.pprint("\nIs this Relevant (Y/N)?")
 
 if __name__ == '__main__':
 	main()
