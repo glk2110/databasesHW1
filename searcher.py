@@ -72,7 +72,7 @@ def main():
 		title =  str(res[u'items'][i][u'title'])
 		print(" URL: " +solution)
 		print(" Title: "+ title)
-		summary = res[su'items'][i][u'snippet']
+		summary = res[u'items'][i][u'snippet']
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
 		relevants.append(raw_input())
