@@ -26,7 +26,7 @@ import sys
 from googleapiclient.discovery import build
 
 def printFeedback(query, precision, relevants):
-	realPrecision = 0.0
+	realPrecision = .0
 	for elem in relevants:
 		if elem:
 			if elem[0] == "y" or elem[0] == "Y":
@@ -72,7 +72,7 @@ def main():
 		title =  str(res[u'items'][i][u'title'])
 		print(" URL: " +solution)
 		print(" Title: "+ title)
-		summary = res[u'items'][i][u'snippet']
+		summary = res[su'items'][i][u'snippet']
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
 		relevants.append(raw_input())
