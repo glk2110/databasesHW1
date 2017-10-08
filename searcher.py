@@ -27,28 +27,27 @@ from googleapiclient.discovery import build
 
 
 def main():
-  # Build a service object for interacting with the API. Visit
-  # the Google APIs Console <http://code.google.com/apis/console>
-  # to get an API key for your own application.
-  apiKey = sys.argv[1]
-  engineID = sys.argv[2]
-  precision = sys.argv[3]
-  search = sys.argv[4]
-  service = build("customsearch", "v1",
-            developerKey=apiKey)
+	# Build a service object for interacting with the API. Visit
+	# the Google APIs Console <http://code.google.com/apis/console>
+	# to get an API key for your own application.
+	apiKey = sys.argv[1]
+	engineID = sys.argv[2]
+	precision = sys.argv[3]
+	search = sys.argv[4]
+	service = build("customsearch", "v1",
+		developerKey=apiKey)
 
-  res = service.cse().list(
-      q=search,
-      cx=engineID,
-    ).execute()
+	res = service.cse().list(
+		q=search,
+		cx=engineID,
+	).execute()
 
- solution = str(res[u'items'][0][u'link'])
-  title =  str(res[u'items'][0][u'title'])
-  pprint.pprint("URL: " +solution)
-  pprint.pprint("Title: "+ title)
-  summary = res[u'items'][0][u'snippet']
-  #solution = str(res[u'items'][0][u'link'])
-  pprint.pprint("Sumary: " + summary)
+	solution = str(res[u'items'][0][u'link'])
+	title =  str(res[u'items'][0][u'title'])
+	pprint.pprint("URL: " +solution)
+	pprint.pprint("Title: "+ title)
+	summary = res[u'items'][0][u'snippet']
+	pprint.pprint("Sumary: " + summary)
 
 if __name__ == '__main__':
-  main()
+	main()
