@@ -43,10 +43,10 @@ def main():
 	).execute()
 
 	print("Parameters:")
-	print("Client Key	=" + apiKey)
-	print("Engine Key 	=" + engineID)
-	print("Query		=" + search)
-	print("Precision 	=" + str(precision))
+	print("Client Key	= " + apiKey)
+	print("Engine Key 	= " + engineID)
+	print("Query		= " + search)
+	print("Precision 	= " + str(precision))
 	print("Google Search Results:")
 	print("======================")
 	relevants = []
@@ -54,10 +54,10 @@ def main():
 		print("Result " + str(i) + "\n")
 		solution = str(res[u'items'][i][u'link'])
 		title =  str(res[u'items'][i][u'title'])
-		print("URL: " +solution)
-		print("Title: "+ title)
+		print(" URL: " +solution)
+		print(" Title: "+ title)
 		summary = res[u'items'][i][u'snippet']
-		print("Summary: " + summary)
+		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
 
 if __name__ == '__main__':
