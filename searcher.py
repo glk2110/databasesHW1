@@ -19,7 +19,6 @@
 Command-line application that does a search.
 """
 
-__author__ = 'jcgregorio@google.com (Joe Gregorio)'
 
 import pprint
 import sys
@@ -43,12 +42,13 @@ def main():
       cx=engineID,
     ).execute()
 
-  url = str(res[u'items'][0][u'link'])
+ solution = str(res[u'items'][0][u'link'])
   title =  str(res[u'items'][0][u'title'])
-  summary = str(res[u'items'][0][u'snippet'])
-  pprint.pprint(url)
-  pprint.pprint(title)
-  pprint.pprint(summary)
+  pprint.pprint("URL: " +solution)
+  pprint.pprint("Title: "+ title)
+  summary = res[u'items'][0][u'snippet']
+  #solution = str(res[u'items'][0][u'link'])
+  pprint.pprint("Sumary: " + summary)
 
 if __name__ == '__main__':
   main()
