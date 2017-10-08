@@ -42,16 +42,16 @@ def main():
 		cx=engineID,
 	).execute()
 
-	pprint.pprint("Parameters:")
-	pprint.pprint("Client Key	=" + apiKey)
-	pprint.pprint("Engine Key 	=" + engineID)
-	pprint.pprint("Query		=" + search)
-	pprint.pprint("Precision 	=" + precision)
-	pprint.pprint("Google Search Results:")
-	pprint.pprint("======================")
+	print("Parameters:")
+	print("Client Key	=" + apiKey)
+	print("Engine Key 	=" + engineID)
+	print("Query		=" + search)
+	print("Precision 	=" + str(precision))
+	print("Google Search Results:")
+	print("======================")
 	relevants = []
 	for i in range(10):
-		pprint.pprint("Result " + i + "\n")
+		pprint.pprint("Result " + str(i) + "\n")
 		solution = str(res[u'items'][i][u'link'])
 		title =  str(res[u'items'][i][u'title'])
 		pprint.pprint("URL: " +solution)
