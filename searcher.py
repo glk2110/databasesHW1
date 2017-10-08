@@ -51,7 +51,7 @@ def main():
 	print("======================")
 	relevants = []
 	for i in range(10):
-		print("Result " + str(i) + "\n")
+		print("Result " + str(i + 1) + "\n")
 		solution = str(res[u'items'][i][u'link'])
 		title =  str(res[u'items'][i][u'title'])
 		print(" URL: " +solution)
