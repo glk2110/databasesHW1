@@ -28,8 +28,9 @@ from googleapiclient.discovery import build
 def printFeedback(query, precision, relevants):
 	realPrecision = 0.0
 	for elem in relevants:
-		if elem[0] == "y" or elem[0] == "Y":
-			realPrecision = realPrecision + .1
+		if elem:
+			if elem[0] == "y" or elem[0] == "Y":
+				realPrecision = realPrecision + .1
 	print("======================")
 	print("FEEDBACK SUMMARY")
 	print("Query: ")
