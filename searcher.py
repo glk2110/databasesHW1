@@ -43,11 +43,11 @@ def main():
 	).execute()
 
 	for i in range(10):
-		solution = str(res[u'items'][0][u'link'])
-		title =  str(res[u'items'][0][u'title'])
+		solution = str(res[u'items'][i][u'link'])
+		title =  str(res[u'items'][i][u'title'])
 		pprint.pprint("URL: " +solution)
 		pprint.pprint("Title: "+ title)
-		summary = res[u'items'][0][u'snippet']
+		summary = res[u'items'][i][u'snippet']
 		pprint.pprint("Summary: " + summary)
 
 if __name__ == '__main__':
