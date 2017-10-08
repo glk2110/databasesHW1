@@ -59,6 +59,8 @@ def main():
 		summary = res[u'items'][i][u'snippet']
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
+		relevants.append(raw_input())
+	print(relevants)
 
 if __name__ == '__main__':
 	main()
