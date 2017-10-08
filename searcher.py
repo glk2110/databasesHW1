@@ -25,6 +25,21 @@ import sys
 
 from googleapiclient.discovery import build
 
+def printFeedback(query, precision, relevants):
+	realPrecision = 0.0
+	for elem in relevants:
+		if elem[0] == "y" or elem[0] == "Y":
+			realPrecision = realPrecision + .1
+	print("======================")
+	print("FEEDBACK SUMMARY")
+	print("Query: ")
+	print("Precision: " + realPrecision)
+	if precision > realPrecision:
+		return False
+	return True
+
+def expandQuery():
+	print("expanding query")
 
 def main():
 	# Build a service object for interacting with the API. Visit
@@ -60,7 +75,11 @@ def main():
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
 		relevants.append(raw_input())
-	print(relevants)
+	if printFeedback(query, precision, relevants) == False:
+		print("Still below the desired precision of " + str(precision))
+		expandQuery()
+	else:
+		print("Desired precision reached, done")
 
 if __name__ == '__main__':
 	main()
