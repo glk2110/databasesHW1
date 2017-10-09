@@ -35,6 +35,8 @@ def printFeedback(query, precision, relevants):
 	print("FEEDBACK SUMMARY")
 	print("Query: " + query)
 	print("Precision: " + str(realPrecision))
+	if realPrecision == .0:
+		return 2
 	if precision > realPrecision:
 		return 0
 	return 1
@@ -85,7 +87,7 @@ def makeQuery(apiKey, engineID, precision, search):
 			badTitles.append(title)
 			badSummaries.append(summary)
 	if printFeedback(search, float(precision), relevants) == 0:
-		print("Still below the desired precision of " + str(float(precision)) + "\nExpanding Query")
+		print("Still below the desired precision of " + str(float(precision)) + "\nExpanding Query\n")
 		newSearch = getNewQuery(search, relevantTitles, relevantSummaries, badTitles, badSummaries)
 		makeQuery(apiKey, engineID, precision, newSearch)
 	elif printFeedback(search, float(precision), relevants) == 1:
