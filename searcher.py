@@ -44,7 +44,19 @@ def getNewQuery(oldQuery, allWords):
 		for j in i:
 			if j not in wordList:
 				wordList.append(j)
-	print(realWords)
+	termFrequency = {}
+	art = 10
+	for word4 in wordList:
+		termFrequency[word4] = []
+		art = art - 10
+		for article in realWords:
+			countWord = 0
+			for word5 in article:
+				if word5==word4:
+					countWord += 1
+			art = art + 1
+			termFrequency[word4].append([art,countWord])
+	print(termFrequency)
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
