@@ -65,11 +65,11 @@ def getNewQuery(oldQuery, allWords):
 			tf = float(termFrequency[word6][cnt][1])/len(realWords[cnt])
 			df = 0
 			for article2 in realWords:
-				if word6 in line:
+				if word6 in article2:
 					df += 1
 			tfidf[word6].append((math.log(10/df))*tf)
 			cnt = cnt + 1
-	print(tfidf)
+	print(realWords)
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
