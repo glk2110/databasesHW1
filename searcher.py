@@ -44,7 +44,6 @@ def getNewQuery(oldQuery, allWords):
 		for j in i:
 			if j not in wordList:
 				wordList.append(i)
-	print(realWords)
 	print(wordList)
 	return oldQuery
 
