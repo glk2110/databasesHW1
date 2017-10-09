@@ -73,6 +73,7 @@ def makeQuery(apiKey, engineID, precision, search):
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
 		good = relevants.append(raw_input())
+		print(good)
 		if good:
 			if good[0] == "y" or good[0] == "Y":
 				relevantTitles.append(title)
