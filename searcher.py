@@ -39,7 +39,7 @@ def printFeedback(query, precision, relevants):
 		return False
 	return True
 
-def getNewQuery(oldQuery):
+def getNewQuery(oldQuery, yTitles, ySummaries, nTitles, nSummaries):
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
@@ -59,6 +59,10 @@ def makeQuery(apiKey, engineID, precision, search):
 	print("Google Search Results:")
 	print("======================")
 	relevants = []
+	relevantTitles = []
+	relevantSummaries = []
+	badTitles = []
+	badSummaries = []
 	for i in range(10):
 		print("Result " + str(i + 1) + "\n")
 		solution = str(res[u'items'][i][u'link'])
@@ -68,10 +72,19 @@ def makeQuery(apiKey, engineID, precision, search):
 		summary = res[u'items'][i][u'snippet']
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
-		relevants.append(raw_input())
+		good = relevants.append(raw_input())
+		if good:
+			if good[0] == "y" or good[0] == "Y":
+				relevantTitles.append(title)
+				relevantSummaries.append(summary)
+		else:
+			badTitles.append(title)
+			badSummaries.append(summary)
+	print(relevantTitles)
+	print(badTitles)
 	if printFeedback(search, float(precision), relevants) == False:
 		print("Still below the desired precision of " + str(float(precision)) + "\nExpanding Query")
-		newSearch = getNewQuery(search)
+		newSearch = getNewQuery(search, relevantTitles, relevantSummaries, badTitles, badSummaries)
 		makeQuery(apiKey, engineID, precision, newSearch)
 	else:
 		print("Desired precision reached, done")
