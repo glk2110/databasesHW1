@@ -127,8 +127,6 @@ def makeQuery(apiKey, engineID, precision, search):
 def algorithm(oldQuery,words, tfidf):
     for elm in words:
         goodw, badw, gValue, bValue = 0, 0, 0, 0
-        
-          
         x=1
         while (x<10):
             if (relevants[x] == "y" or relevants[x] != "Y"):
