@@ -78,6 +78,9 @@ def makeQuery(apiKey, engineID, precision, search):
 			if good[0] == "y" or good[0] == "Y":
 				relevantTitles.append(title)
 				relevantSummaries.append(summary)
+			else:
+				badTitles.append(title)
+				badSummaries.append(summary)
 		else:
 			badTitles.append(title)
 			badSummaries.append(summary)
