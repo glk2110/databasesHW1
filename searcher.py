@@ -41,7 +41,7 @@ def getNewQuery(oldQuery, allWords):
 			tokens = nltk.word_tokenize(temp)
 			for word3 in tokens:
 				word3 = word3.lower()
-				if word3 not in stopWords:
+				if word3 not in stopWords or word3 in oldQuery:
 					if word3 != "":
 						realWords1.append(word3)
 		realWords.append(realWords1)
