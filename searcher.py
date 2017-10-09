@@ -156,7 +156,7 @@ def algorithm(oldQuery,words, tfidf):
             collectionValues.append(value)
     newOrder = sorted(overallWeight.iteritems(), key=operator.itemgetter(1))
     last = len(newOrder)
-    newQuery = oldQuery + newOrder[last-1][0] + newOrder[last-2][0]
+    newQuery = oldQuery + " " + newOrder[last-1][0] + " " + newOrder[last-2][0]
     return newQuery
 
 def main():
