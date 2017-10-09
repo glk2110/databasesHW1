@@ -32,7 +32,7 @@ def getNewQuery(oldQuery, yWords, nWords):
 	for word2 in nWords:
 		allWords.append(word2)
 	for string in allWords:
-		tokens = nltk.word_tokenize(string)
+		tokens = nltk.word_tokenize(str(string))
 		for word3 in tokens:
 			word3 = word3.lower()
 			if word3 not in stopWords:
