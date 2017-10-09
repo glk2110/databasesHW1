@@ -65,7 +65,7 @@ def makeQuery(apiKey, engineID, precision, search):
 		title =  str(res[u'items'][i][u'title'])
 		print(" URL: " +solution)
 		print(" Title: "+ title)
-		summary = res[u'items'][i][u'description']
+		summary = res[u'items'][i][u'snippet']
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
 		good = raw_input()
@@ -73,10 +73,10 @@ def makeQuery(apiKey, engineID, precision, search):
 		if good:
 			if good[0] == "y" or good[0] == "Y":
 				relevantWords.append(title)
-				relevantWords.append(summary)
+				relevantWords.append(summary.encode('ascii','ignore'))
 			else:
 				badWords.append(title)
-				badWords.append(summary)
+				badWords.append(summary.encode('ascii','ignore'))
 		else:
 			badWords.append(title)
 			badWords.append(summary)
