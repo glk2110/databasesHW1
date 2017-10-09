@@ -36,8 +36,8 @@ def printFeedback(query, precision, relevants):
 	print("Query: " + query)
 	print("Precision: " + str(realPrecision))
 	if precision > realPrecision:
-		return False
-	return True
+		return 0
+	return 1
 
 def getNewQuery(oldQuery, yTitles, ySummaries, nTitles, nSummaries):
 	return oldQuery
@@ -84,15 +84,14 @@ def makeQuery(apiKey, engineID, precision, search):
 		else:
 			badTitles.append(title)
 			badSummaries.append(summary)
-	print(relevantTitles)
-	print(badTitles)
-	if printFeedback(search, float(precision), relevants) == False:
+	if printFeedback(search, float(precision), relevants) == 0:
 		print("Still below the desired precision of " + str(float(precision)) + "\nExpanding Query")
 		newSearch = getNewQuery(search, relevantTitles, relevantSummaries, badTitles, badSummaries)
 		makeQuery(apiKey, engineID, precision, newSearch)
-	else:
+	elif printFeedback(search, float(precision), relevants) == 1:
 		print("Desired precision reached, done")
-
+	else
+		print("Below desired precision but can no longer augment the query")
 def main():
 	# Build a service object for interacting with the API. Visit
 	# the Google APIs Console <http://code.google.com/apis/console>
