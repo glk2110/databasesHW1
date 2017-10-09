@@ -39,17 +39,10 @@ def printFeedback(query, precision, relevants):
 		return False
 	return True
 
-def expandQuery():
-	print("expanding query")
+def getNewQuery(oldQuery):
+	return oldQuery
 
-def main():
-	# Build a service object for interacting with the API. Visit
-	# the Google APIs Console <http://code.google.com/apis/console>
-	# to get an API key for your own application.
-	apiKey = sys.argv[1]
-	engineID = sys.argv[2]
-	precision = sys.argv[3]
-	search = sys.argv[4]
+def makeQuery(apiKey, engineID, precision, search):
 	service = build("customsearch", "v1",
 		developerKey=apiKey)
 
@@ -77,10 +70,21 @@ def main():
 		print("\nIs this Relevant (Y/N)?")
 		relevants.append(raw_input())
 	if printFeedback(search, float(precision), relevants) == False:
-		print("Still below the desired precision of " + str(float(precision)))
-		expandQuery()
+		print("Still below the desired precision of " + str(float(precision)) + "\nExpanding Query")
+		newSearch = getNewQuery(search)
+		makeQuery(apiKey, engineID, precision, newSearch)
 	else:
 		print("Desired precision reached, done")
+
+def main():
+	# Build a service object for interacting with the API. Visit
+	# the Google APIs Console <http://code.google.com/apis/console>
+	# to get an API key for your own application.
+	apiKey = sys.argv[1]
+	engineID = sys.argv[2]
+	precision = sys.argv[3]
+	search = sys.argv[4]
+	makeQuery(apiKey, engineID, precision, search)
 
 if __name__ == '__main__':
 	main()
