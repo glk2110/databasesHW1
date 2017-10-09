@@ -9,6 +9,10 @@ import math
 
 from googleapiclient.discovery import build
 
+relWeights = {}
+nonrelWeights = {}
+overallWeight = {}
+
 def printFeedback(query, precision, relevants):
 	realPrecision = .0
 	for elem in relevants:
@@ -69,8 +73,7 @@ def getNewQuery(oldQuery, allWords):
 					df += 1
 			tfidf[word6].append((math.log(10/df))*tf)
 			cnt = cnt + 1
-	print(tfidf)
-	return oldQuery
+	return algorithm(oldQuery, wordList, tfidf)
 
 def makeQuery(apiKey, engineID, precision, search):
 	service = build("customsearch", "v1",
