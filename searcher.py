@@ -90,7 +90,7 @@ def makeQuery(apiKey, engineID, precision, search):
 		makeQuery(apiKey, engineID, precision, newSearch)
 	elif printFeedback(search, float(precision), relevants) == 1:
 		print("Desired precision reached, done")
-	else
+	else:
 		print("Below desired precision but can no longer augment the query")
 def main():
 	# Build a service object for interacting with the API. Visit
