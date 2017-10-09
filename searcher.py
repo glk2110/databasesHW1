@@ -60,7 +60,7 @@ def getNewQuery(oldQuery, allWords):
 	for word6 in wordList:
 		cnt = 0
 		for article1 in realWords:
-			tf = termFrequency[word6][cnt][1]/len(realWords[cnt])
+			tf = int(termFrequency[word6][cnt][1])/len(realWords[cnt])
 			print(tf)
 			cnt = cnt + 1
 	return oldQuery
