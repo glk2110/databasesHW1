@@ -35,9 +35,7 @@ def getNewQuery(oldQuery, yWords, nWords):
 	for string in allWords:
 		tokens = nltk.word_tokenize(string)
 		for word3 in tokens:
-			temp = word3
-			temp.translate(None, string.punctuation)
-			temp = temp.lower()
+			word3 = word3.lower()
 			if temp not in stopWords:
 				realWords.append(temp)
 	print(realWords)
