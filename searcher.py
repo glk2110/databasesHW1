@@ -68,8 +68,8 @@ def getNewQuery(oldQuery, allWords):
 				if word6 in line:
 					df += 1
 			tfidf[word6].append((math.log(10/df))*tf)
-	print(tfidf)
 			cnt = cnt + 1
+	print(tfidf)
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
