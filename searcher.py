@@ -69,7 +69,7 @@ def getNewQuery(oldQuery, allWords):
 					df += 1
 			tfidf[word6].append((math.log(10/df))*tf)
 			cnt = cnt + 1
-	print(realWords)
+	print(tfidf)
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
