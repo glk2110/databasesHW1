@@ -97,6 +97,9 @@ def makeQuery(apiKey, engineID, precision, search):
 	relevantWords = []
 	badWords = []
 	for i in range(10):
+		if len(res[u'items']) < 10:
+			print("not enough results in google")
+			return
 		temp = []
 		print("Result " + str(i + 1) + "\n")
 		solution = res[u'items'][i][u'link'].encode('ascii','ignore')
