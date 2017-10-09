@@ -36,11 +36,11 @@ def getNewQuery(oldQuery, yWords, nWords):
 		tokens = nltk.word_tokenize(string1)
 		for word3 in tokens:
 			word3.translate(None, string.punctuation)
+			print(word3)
 			word3 = word3.lower()
 			if word3 not in stopWords:
 				if word3 != "":
 					realWords.append(word3)
-	print(realWords)
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
