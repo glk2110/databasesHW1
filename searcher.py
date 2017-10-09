@@ -37,7 +37,7 @@ def printFeedback(query, precision, relevants):
 	print("Precision: " + str(realPrecision))
 	if realPrecision == .0:
 		return 2
-	if precision > realPrecision:
+	elif precision > realPrecision:
 		return 0
 	return 1
 
