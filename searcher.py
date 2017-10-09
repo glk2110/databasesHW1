@@ -129,18 +129,18 @@ def algorithm(oldQuery,words, tfidf):
         while (x<10):
             if (relevants[x] == "y" or relevants[x] != "Y"):
                 gdocfreq =float(tfidf[elm][x])
-                goodW = goodW + gdocfreq
+                goodw = goodw + gdocfreq
                 gValue +=1
             if (relevants[x] == "n" or relevants[x] == "N"):
                 bdocfreq = float(tfidf[elm][x])
-                badW = badW + bdocfreq
+                badw = badw + bdocfreq
                 bValue +=1
             x = x+1
         if(bValue != 0):
-            bTemp = float(badW/bValue)
+            bTemp = float(badw/bValue)
             nonrelWeights[elm] = btemp
         if(gValue != 0):
-            gTemp = float(goodW/gValue) 
+            gTemp = float(goodw/gValue) 
             relWeights[elm] = gTemp 
         if(bValue == 0):
             nonrelWeights[elm] = 0
