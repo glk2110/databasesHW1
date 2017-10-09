@@ -99,17 +99,17 @@ def makeQuery(apiKey, engineID, precision, search):
 	for i in range(10):
 		temp = []
 		print("Result " + str(i + 1) + "\n")
-		solution = str(res[u'items'][i][u'link'])
-		title =  str(res[u'items'][i][u'title'])
+		solution = res[u'items'][i][u'link'].encode('ascii','ignore')
+		title =  res[u'items'][i][u'title'].encode('ascii','ignore')
 		print(" URL: " +solution)
 		print(" Title: "+ title)
-		summary = res[u'items'][i][u'snippet']
+		summary = res[u'items'][i][u'snippet'].encode('ascii','ignore')
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
 		good = raw_input()
 		relevants.append(good)
 		temp.append(title)
-		temp.append(summary.encode('ascii','ignore'))
+		temp.append(summary)
 		relevantWords.append(temp)
 	printedFeedback = printFeedback(search, float(precision), relevants)
 	if printedFeedback == 0:
