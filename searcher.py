@@ -22,6 +22,7 @@ Command-line application that does a search.
 
 import pprint
 import sys
+import nltk
 
 from googleapiclient.discovery import build
 
@@ -47,7 +48,9 @@ def getNewQuery(oldQuery, yWords, nWords):
 		allWords.append(word)
 	for word2 in nWords:
 		allWords.append(word2)
-	print(allWords)
+	for string in allWords:
+		tokens = nltk.word_tokenize(string)
+		print(tokens)
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
