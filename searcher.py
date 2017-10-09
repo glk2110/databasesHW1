@@ -65,7 +65,7 @@ def makeQuery(apiKey, engineID, precision, search):
 		title =  str(res[u'items'][i][u'title'])
 		print(" URL: " +solution)
 		print(" Title: "+ title)
-		summary = res[u'items'][i][u'snippet']
+		summary = res[u'items'][i][u'description']
 		print(" Summary: " + summary)
 		print("\nIs this Relevant (Y/N)?")
 		good = raw_input()
