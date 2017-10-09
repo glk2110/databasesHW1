@@ -41,7 +41,12 @@ def getNewQuery(oldQuery, yWords, nWords):
 			if word3 not in stopWords:
 				if word3 != "":
 					realWords.append(word3)
+	wordList = []
+	for i in realWords:
+		if i not in wordList:
+			wordList.append(i)
 	print(realWords)
+	print(wordList)
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
