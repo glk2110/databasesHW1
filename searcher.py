@@ -138,7 +138,7 @@ def algorithm(oldQuery,words, tfidf):
             x = x+1
         if(bValue != 0):
             bTemp = float(badw/bValue)
-            nonrelWeights[elm] = btemp
+            nonrelWeights[elm] = bTemp
         if(gValue != 0):
             gTemp = float(goodw/gValue) 
             relWeights[elm] = gTemp 
