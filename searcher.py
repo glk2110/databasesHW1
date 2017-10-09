@@ -42,6 +42,12 @@ def printFeedback(query, precision, relevants):
 	return 1
 
 def getNewQuery(oldQuery, yWords, nWords):
+	allWords = []
+	for word in yWords:
+		allWords.append(word)
+	for word2 in nWords:
+		allWords.append(word2)
+	print(allWords)
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
