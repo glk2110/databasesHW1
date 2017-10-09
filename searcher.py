@@ -32,11 +32,10 @@ def getNewQuery(oldQuery, yWords, nWords):
 		allWords.append(word)
 	for word2 in nWords:
 		allWords.append(word2)
-	for string in allWords:
-		tokens = nltk.word_tokenize(string)
+	for string1 in allWords:
+		tokens = nltk.word_tokenize(string1)
 		for word3 in tokens:
-			exclude = set(string.punctuation)
-			word3 = ''.join(ch for ch in word3 if ch not in exclude)
+			word3.translate(None, string.punctuation)
 			word3 = word3.lower()
 			if word3 not in stopWords:
 				if word3 != "":
