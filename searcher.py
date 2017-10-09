@@ -73,10 +73,10 @@ def makeQuery(apiKey, engineID, precision, search):
 		if good:
 			if good[0] == "y" or good[0] == "Y":
 				relevantWords.append(title)
-				relevantWords.append(summary)
+				relevantWords.append(summary.encode("utf-8"))
 			else:
 				badWords.append(title)
-				badWords.append(summary)
+				badWords.append(summary.encode("utf-8"))
 		else:
 			badWords.append(title)
 			badWords.append(summary)
