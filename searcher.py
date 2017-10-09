@@ -128,11 +128,11 @@ def algorithm(oldQuery,words, tfidf):
         x=1
         while (x<10):
             if (relevants[x] == "y" or relevants[x] != "Y"):
-                gdocfreq =float(tfdif[elm][x])
+                gdocfreq =float(tfidf[elm][x])
                 goodW = goodW + gdocfreq
                 gValue +=1
             if (relevants[x] == "n" or relevants[x] == "N"):
-                bdocfreq = float(tfdif[elm][x])
+                bdocfreq = float(tfidf[elm][x])
                 badW = badW + bdocfreq
                 bValue +=1
             x = x+1
