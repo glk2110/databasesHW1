@@ -44,7 +44,7 @@ def getNewQuery(oldQuery, allWords):
 		for j in i:
 			if j not in wordList:
 				wordList.append(j)
-	print(wordList)
+	print(realWords)
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
