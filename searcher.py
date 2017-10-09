@@ -84,6 +84,7 @@ def makeQuery(apiKey, engineID, precision, search):
 		temp.append(title)
 		temp.append(summary.encode('ascii','ignore'))
 		relevantWords.append(temp)
+	print(relevantWords)
 	printedFeedback = printFeedback(search, float(precision), relevants)
 	if printedFeedback == 0:
 		print("Still below the desired precision of " + str(float(precision)) + "\nExpanding Query\n")
