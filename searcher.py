@@ -119,6 +119,45 @@ def makeQuery(apiKey, engineID, precision, search):
 		print("Desired precision reached, done")
 	else:
 		print("Below desired precision but can no longer augment the query")
+
+def algorithm(oldQuery,words, tfidf):
+    for elm in words:
+        goodw, badw, gValue, bValue = 0, 0, 0, 0
+        
+          
+        x=1
+        while (x<10):
+            if (relevants[i] == "y" or relevants[i] != "Y"):
+                gdocfreq =float(tfdif[elm][x])
+                goodW = goodW + gdocfreq
+                gValue +=1
+            if (relevants[i] == "n" or relevants[i] == "N"):
+                bdocfreq = float(tfdif[elm][x])
+                badW = badW + bdocfreq
+                bValue +=1
+            x = x+1
+        if(bValue != 0):
+            bTemp = float(badW/bValue)
+            nonrelWeights[elm] = btemp
+        if(gValue != 0):
+            gTemp = float(goodW/gValue) 
+            relWeights[elm] = gTemp 
+        if(bValue == 0):
+            nonrelWeights[elm] = 0
+        if(gValue == 0):
+            relWeights[elm] = 0
+        oneRelWeight = relWeights[elm] * 0.15
+        oneUnRelWeight = nonrelWeights[elm] * 0.15
+        totalWeight = float(oneRelWeight - oneUnRelWeight)
+        overallWeight[elm] = totalWeight 
+        collectionValues = []
+        for value in overallWeight.itervalues():
+            collectionValues.append(value)
+    newOrder = sorted(overallWeight.iteritems(), key=operator.itemgetter(1))
+    last = len(newOrder)
+    newQuery = oldQuery + newOrder[last-1][0] + newOrder[last-2][0]
+    return newQuery
+
 def main():
 	# Build a service object for interacting with the API. Visit
 	# the Google APIs Console <http://code.google.com/apis/console>
