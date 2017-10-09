@@ -5,6 +5,7 @@ import pprint
 import sys
 import nltk
 import string
+import math
 
 from googleapiclient.discovery import build
 
@@ -59,9 +60,15 @@ def getNewQuery(oldQuery, allWords):
 	tfidf = {}
 	for word6 in wordList:
 		cnt = 0
+		tfidf[word6] = []
 		for article1 in realWords:
 			tf = float(termFrequency[word6][cnt][1])/len(realWords[cnt])
-			print(tf)
+			df = 0
+			for article2 in realWords:
+				if word6 in line:
+					df += 1
+			tfidf[word6].append((math.log(10/df))*tf)
+	print(tfidf)
 			cnt = cnt + 1
 	return oldQuery
 
