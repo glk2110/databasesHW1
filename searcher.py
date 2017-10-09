@@ -37,7 +37,7 @@ def getNewQuery(oldQuery, yWords, nWords):
 			word3 = word3.lower()
 			if word3 not in stopWords:
 				realWords.append(word3)
-	print(realWords)
+	print(eval(realWords))
 	return oldQuery
 
 def makeQuery(apiKey, engineID, precision, search):
